@@ -9,7 +9,7 @@ class DeflectionService{
 
     private convertUnitService: ConvertUnitService;
 
-    private deflectionLimit: LengthUnit = {value: 0.25, unit: "mm"};
+    private deflectionLimit: LengthUnit = {value: 3.17, unit: "mm"};
     private gravity: number = 9.81;
     private elasticModulus: number = 68900;
 
