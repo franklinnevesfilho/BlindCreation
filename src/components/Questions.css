@@ -44,12 +44,6 @@
     width: 100%;
     max-width: 1200px;
     padding: 20px;
-
-
-    .chart{
-        width: 50%;
-        margin: 20px 0;
-    }
 }
 
 .btn-group {
@@ -65,16 +59,13 @@
         padding: 0.5rem 1rem;
         margin: 0 5px;
         border-radius: 5px;
-        background-color: white;
-        color: black;
+        color: white;
         cursor: pointer;
-        border: 1px solid black;
+        border: 1px solid white;
 
         &:hover {
-
-            border-color: white;
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
         }
     }
 }
@@ -97,14 +88,56 @@
         flex-direction: column;
         margin: 0;
         padding: 0;
-
-        .chart{
-            margin: 0;
-            padding: 0;
-            width: calc(95% - 10px);
-        }
     }
     .btn-group{
         flex-direction: column;
     }
+}
+
+@media (prefers-color-scheme: light) {
+    h1{
+        color: black;
+    }
+
+    .question{
+        border: 1px solid black;
+
+        h3{
+            margin: 0;
+            padding: 0;
+            font-size: 1.5em;
+            color: black;
+        }
+
+        input {
+            border: 1px solid black;
+        }
+
+        select{
+            border: 1px solid black;
+        }
+
+    }
+
+    .btn-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+
+        .btn {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+
+            &:hover {
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+
 }

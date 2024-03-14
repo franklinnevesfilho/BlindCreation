@@ -1,5 +1,6 @@
 "use client";
 import "chart.js/auto";
+import './Barchart.css';
 import {BottomRail} from "./models/BottomRail.tsx";
 import {Fabric} from "./models/Fabric.tsx";
 import {Tube} from "./models/Tube.tsx";
@@ -17,35 +18,48 @@ interface BarChartProps {
 }
 
 function BarChart(props:BarChartProps) {
+    const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // prefersDarkMode will be true if the user prefers dark mode, false otherwise
     const deflectionService = new DeflectionService();
+
+    const getGridColor = () => {
+        return prefersDarkMode? 'rgba(255,255,255,0.3)': 'rgba(0,0,0,0.3)';
+    }
+
+    const getTextColor = () => {
+        return prefersDarkMode? 'rgba(255,255,255,1)': 'rgba(0,0,0,1)';
+    }
 
     const chartOptions = {
         scales: {
             y: {
                 beginAtZero: true,
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)'
+                    color: getGridColor() // You can replace this with a CSS variable
+
                 },
                 ticks: {
                     stepSize: 0.01,
-                    color: 'white',
+                    color: getTextColor() // You can replace this with a CSS variable
                 }
             },
             x: {
                 title: {
                     display: true,
                     text: 'Tubes',
-                    color: 'white',
+                    color: getTextColor() // You can replace this with a CSS variable
+
                 },
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.1)'
+                    color: getGridColor() // You can replace this with a CSS variable
                 },
                 ticks: {
-                    color: 'white',
-                }
+                    color: getTextColor() // You can replace this with a CSS variable
+                },
             },
         }
     };
+
 
     const getChartData = (unit:string) => {
 
@@ -94,11 +108,11 @@ function BarChart(props:BarChartProps) {
     }
 
     return (
-        <>
+        <div className={'chart-container'}>
             <Line
                 data={getChartData(props.unit)}
                 options={chartOptions}/>
-        </>
+        </div>
     );
 }
 
