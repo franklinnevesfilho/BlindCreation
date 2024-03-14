@@ -107,11 +107,15 @@ function Deflection() {
 
     return (
         <>
-            <div className="btn-group">
-                <button className={'btn'}>Add personal tube</button>
-                <button className={'btn'}>Add Fabric</button>
-                <button className={'btn'}>Add Bottomrail</button>
-            </div>
+            <h1>Deflection</h1>
+
+            {/*ToDo: add tube, fabric, bottomrail buttons*/}
+            {/*<div className="btn-group">*/}
+            {/*    <button className={'btn'}>Add Tube</button>*/}
+            {/*    <button className={'btn'}>Add Fabric</button>*/}
+            {/*    <button className={'btn'}>Add Bottomrail</button>*/}
+            {/*</div>*/}
+
             {answerForm()}
             <div className="chart-section">
                 {
