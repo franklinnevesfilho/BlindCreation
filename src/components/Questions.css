@@ -78,3 +78,33 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .question{
+        flex-direction: column;
+
+        .input-group{
+            margin-top: 10px;
+        }
+
+        select{
+            margin-top: 10px;
+        }
+
+    }
+
+    .chart-section{
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+
+        .chart{
+            margin: 0;
+            padding: 0;
+            width: calc(95% - 10px);
+        }
+    }
+    .btn-group{
+        flex-direction: column;
+    }
+}
