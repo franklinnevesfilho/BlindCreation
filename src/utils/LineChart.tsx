@@ -1,25 +1,34 @@
 "use client";
 import "chart.js/auto";
 import './Linechart.css';
-import React from 'react';
 import {Line} from "react-chartjs-2";
 
 interface BarChartProps {
     data: {
         labels: string[];
-        datasets: {
-            label: string;
-            data: number[];
-            backgroundColor: string[];
-            borderColor: string[];
-            borderWidth: number;
-        }[];
+        datasets: (
+            {
+                label: string;
+                data: number[];
+                fill: boolean;
+                borderColor: string;
+                backgroundColor?: undefined;
+            } |
+            {
+                label: string;
+                data: number[];
+                fill: boolean;
+                backgroundColor: string;
+                borderColor?: undefined;
+            }
+            )[];
     };
 
     title: string;
     xLabel: string;
     yLabel: string;
 }
+
 
 function LineChart(props:BarChartProps) {
     const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;

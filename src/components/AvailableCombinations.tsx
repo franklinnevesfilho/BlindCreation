@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import SystemService from "./service/SystemService.tsx";
 import {Fabric} from "./models/Fabric.tsx";
 import {LengthUnit} from "./models/LengthUnit.tsx";
@@ -9,7 +9,7 @@ import {Tube} from "./models/Tube.tsx";
 import {BottomRail} from "./models/BottomRail.tsx";
 
 interface AvailableCombinationProps {
-    fabric: Fabric ,
+    fabric?: Fabric ,
     width: LengthUnit;
     drop: LengthUnit;
     bottomRail?: BottomRail;
@@ -30,6 +30,8 @@ function AvailableCombinations(props: AvailableCombinationProps) {
     const systems = systemService.getSystems()
 
     const getAvailableCombos = () =>{
+        if (fabric === undefined || bottomRail === undefined) return;
+
         const deflections: {tube:Tube, deflection:number}[] = [];
         tubes.map((tube) => {
             const load = shadeCalculator.getLoad(width, drop, fabric, bottomRail);
@@ -51,7 +53,7 @@ function AvailableCombinations(props: AvailableCombinationProps) {
 
             return {
                 system: system,
-                tubes: availableTubes
+                tubes: availableTubes.map((tube) => tube.tube)
             }
         })
 
@@ -81,8 +83,8 @@ function AvailableCombinations(props: AvailableCombinationProps) {
                                             {
                                                 combo.tubes.map((tube) => {
                                                     return (
-                                                        <option key={tube.tube.id}
-                                                                value={tube.tube.id}>{tube.tube.name}</option>
+                                                        <option key={tube.id}
+                                                                value={tube.id}>{tube.name}</option>
 
                                                     )
                                                 })

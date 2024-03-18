@@ -36,16 +36,16 @@ function Questions(props: QuestionsProps) {
         setCurrDrop(newDrop)
         setValues(width, newDrop, fabricId, bottomRailId, unit)
     }
-    const setUnit = (newUnit) => {
+    const setUnit = (newUnit:string) => {
         setCurrUnit(newUnit)
         setValues(width, drop, fabricId, bottomRailId, newUnit)
     }
 
-    const setFabricId = (newFabricId) => {
+    const setFabricId = (newFabricId:string) => {
         setValues(width, drop, newFabricId, bottomRailId, unit)
     }
 
-    const setBottomRailId = (newBottomRailId) => {
+    const setBottomRailId = (newBottomRailId:string) => {
         setValues(width, drop, fabricId, newBottomRailId, unit)
     }
 

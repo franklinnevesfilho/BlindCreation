@@ -17,7 +17,7 @@ interface BarChartProps {
 }
 
 function DeflectionChart(props:BarChartProps) {
-    const deflectionService = new ShadeCalculator();
+    const deflectionService = ShadeCalculator.getInstance();
 
     const organizeBigToSmall = (labels:string[], deflections:number[]) => {
         const tubes = labels.map((label, index) => {
@@ -49,7 +49,7 @@ function DeflectionChart(props:BarChartProps) {
         const labels: string[] = [];
         const deflections: number[] = [];
 
-        if (fabric !== undefined) {
+        if (fabric !== undefined && bottomRail !== undefined) {
             tubes.forEach((tube) => {
                 labels.push(tube.name);
 

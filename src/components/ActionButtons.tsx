@@ -1,9 +1,9 @@
-import React from 'react';
+import {Dispatch, SetStateAction} from 'react';
 import AddTube from "./forms/AddTube.tsx";
 import TubeService from "./service/TubeService.tsx";
 
 interface ActionButtonsProps {
-    setDisplayModal: (displayModal: {display: boolean, content: Element}) => void;
+    setDisplayModal: Dispatch<SetStateAction<{ display: boolean; content: JSX.Element; }>>;
     tubeService: TubeService;
     closeModal: () => void;
 
