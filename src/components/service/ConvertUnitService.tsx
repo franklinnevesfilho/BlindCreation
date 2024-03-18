@@ -1,6 +1,21 @@
 class ConvertUnitService {
 
-    convertUnit(value: number, from: string, to: string): number {
+    private static instance: ConvertUnitService;
+
+    private constructor() {}
+
+    public static getInstance(): ConvertUnitService {
+        if (!ConvertUnitService.instance) {
+            ConvertUnitService.instance = new ConvertUnitService();
+        }
+        return ConvertUnitService.instance;
+    }
+
+    public getPossibleUnits(): string[] {
+        return ["mm", "cm", "in", "ft", "m", "yd"];
+    }
+
+    public convertUnit(value: number, from: string, to: string): number {
         switch (to) {
             case "mm":
                 return this.convertToMM(value, from);
