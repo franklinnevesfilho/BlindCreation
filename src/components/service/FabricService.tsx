@@ -1,90 +1,114 @@
 import { Fabric } from "../models/Fabric";
 
 class FabricService {
-    fabrics: Fabric[] = [
+    private static instance: FabricService;
+
+    private fabrics: Fabric[] = [
         {
             id: "0-002-16-00198",
             name: "Touareg White",
-            thickness: 0.5,
-            thicknessUnit: "mm",
-            weight: 275,
-            weightUnit: "gsm"
+            thickness: {
+                value: 0.5,
+                unit: "mm"
+            },
+            weight: {
+                value: 275,
+                unit: "gsm"
+            },
         },
         {
             id: "0-002-26-00198",
             name: "Carolina White",
-            thickness: 0.56,
-            thicknessUnit: "mm",
-            weight: 196,
-            weightUnit: "gsm"
+            thickness: {
+                value: 0.56,
+                unit: "mm"
+            },
+            weight: {
+                value: 196,
+                unit: "gsm"
+            },
         },
         {
             id: "0-002-A6-02110",
             name: "Sheerlux Adagio Ivory",
-            thickness: 0.44,
-            thicknessUnit: "mm",
-            weight: 117,
-            weightUnit: "gsm"
+            thickness: {
+                value: 0.44,
+                unit: "mm"
+            },
+            weight: {
+                value: 117,
+                unit: "gsm"
+            },
         },
         {
             id: "0-002-A3-01110",
             name: "Sheerlux Ayre White",
-            thickness: 0.2,
-            thicknessUnit: "mm",
-            weight: 60,
-            weightUnit: "gsm"
+            thickness: {
+                value: 0.2,
+                unit: "mm"
+            },
+            weight: {
+                value: 60,
+                unit: "gsm"
+            },
         },
         {
             id: "0-002-A5-01110",
             name: "Sheerlux Rhapsody White",
-            thickness: 0.16,
-            thicknessUnit: "mm",
-            weight: 57,
-            weightUnit: "gsm"
+            thickness: {
+                value: 0.16,
+                unit: "mm"
+            },
+            weight: {
+                value: 57,
+                unit: "gsm"
+            },
         },
         {
             id: "0-002-70-96072",
             name: "Nightfall Blackout White",
-            thickness: 0.29,
-            thicknessUnit: "mm",
-            weight: 550,
-            weightUnit: "gsm"
+            thickness: {
+                value: 0.29,
+                unit: "mm"
+            },
+            weight: {
+                value: 550,
+                unit: "gsm"
+            },
         }
     ]
+
+    private constructor() {}
+
+    static getInstance(): FabricService {
+        if(!FabricService.instance){
+            FabricService.instance = new FabricService();
+        }
+        return FabricService.instance;
+    }
 
     addFabric(fabric: Fabric): void {
         if(this.getFabric(fabric.id) === undefined){
             //check unit of measure
-            if(fabric.weightUnit === "gsm"){
+            if(fabric.weight.unit === "gsm"){
                 this.fabrics.push(fabric);
-            }else if (fabric.weightUnit === "oz/yd2") {
-                fabric.weight = fabric.weight * 33.9057474;
-                fabric.weightUnit = "gsm";
+            }else if (fabric.weight.unit === "oz/yd2") {
+                fabric.weight.value = fabric.weight.value * 33.9057474;
+                fabric.weight.unit = "gsm";
                 this.fabrics.push(fabric);
             } else {
-                console.error("Invalid unit of measure, Fabric Weight " + fabric.weightUnit);
+                console.error("Invalid unit of measure, Fabric Weight " + fabric.weight.unit);
             }
 
-            switch(fabric.thicknessUnit){
+            switch(fabric.thickness.unit){
                 case "mm":
                     break;
                 case "in":
-                    fabric.thickness = fabric.thickness * 25.4;
+                    fabric.thickness.value = fabric.thickness.value * 25.4;
                     break;
                 default:
-                    console.error("Invalid unit of measure, Fabric Thickness " + fabric.thicknessUnit);
+                    console.error("Invalid unit of measure, Fabric Thickness " + fabric.thickness.unit);
             }
-        }
-    }
-
-    convertToGSM(weight: number, weightUnit: string): number {
-        if(weightUnit === "oz/yd2"){
-            return weight * 33.9057474
-        }else if (weightUnit === "gsm") {
-            return weight
-        } else {
-            console.error("Invalid unit of measure, can only convert oz/yd2 to gsm");
-            return 0;
         }
     }
 
