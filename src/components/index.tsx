@@ -9,6 +9,7 @@ import Modal from "../utils/Modal.tsx";
 import Questions from "./Questions.tsx";
 import ActionButtons from "./ActionButtons.tsx";
 import AvailableCombinations from "./AvailableCombinations.tsx";
+import react from "@vitejs/plugin-react";
 
 const bottomRailService = BottomRailService.getInstance()
 const fabricService = FabricService.getInstance()
@@ -16,7 +17,7 @@ const tubeService = TubeService.getInstance()
 
 interface displayModal {
     display: boolean;
-    content: Element;
+    content: react.Element;
 }
 
 function Index() {

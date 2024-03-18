@@ -10,7 +10,7 @@ import LineChart from "../../utils/LineChart.tsx";
 interface BarChartProps {
     width: LengthUnit;
     drop: LengthUnit;
-    bottomRail: BottomRail;
+    bottomRail?: BottomRail;
     fabric?: Fabric;
     tubes: Tube[];
     unit: string;

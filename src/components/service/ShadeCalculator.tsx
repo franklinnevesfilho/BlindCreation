@@ -31,7 +31,7 @@ class ShadeCalculator {
         if(tube.outerDiameter.unit === unit &&
             fabric.thickness.unit === unit &&
             drop.unit === unit){
-            result = this.calculateRollUp(drop, fabric, tube.outerDiameter);
+            result = this.calculateRollUp(drop, fabric, tube.outerDiameter, unit);
         }else{
             //convert everything to unit specified
             const outerDiameter = this.convertUnitService.convertUnit(tube.outerDiameter.value, tube.outerDiameter.unit, unit);

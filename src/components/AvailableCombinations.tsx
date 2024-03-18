@@ -12,7 +12,7 @@ interface AvailableCombinationProps {
     fabric: Fabric ,
     width: LengthUnit;
     drop: LengthUnit;
-    bottomRail: BottomRail;
+    bottomRail?: BottomRail;
     unit: string;
 
 }
