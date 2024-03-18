@@ -1,7 +1,70 @@
-.question{
+.roll-diameter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+
+    .diameter{
+        border: 1px solid var(--text-color);
+        margin: 20px 0;
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
+}
+
+.index{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.invalid-input{
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+
+    color: var(--background-color);
+    font-weight: bold;
+
+    background-color: red;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+
+
+}
+
+.system-select {
     width: 50%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin: 20px 0;
+
+    font-size: 1.5rem;
+}
+
+
+.question{
     margin: 20px 0;
     padding: 0.5rem;
+    width: 100%;
 
     display: flex;
     flex-direction: row;
@@ -70,7 +133,57 @@
     }
 }
 
+.available-combos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+
+    .combo{
+        min-width: 200px;
+        margin: 20px;
+        padding: 0.5rem;
+        border: 1px solid var(--text-color);
+        border-radius: 5px;
+
+        .tubes{
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h5{
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        select{
+            width: 90%;
+            border-radius: 5px;
+            padding: 0.5rem 0;
+
+            text-align: center;
+        }
+
+    }
+
+}
+
 @media (max-width: 768px) {
+    .available-combos{
+        flex-direction: column;
+        padding: 0;
+        .combo{
+            width: 100%;
+            margin: 10px 0;
+            padding: 0 0 .5rem 0;
+        }
+    }
+
     .question{
         flex-direction: column;
 

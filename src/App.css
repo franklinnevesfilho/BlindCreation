@@ -3,11 +3,40 @@
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
+
+/*    create variable for background and text color*/
+    --background-color: #1a1a1a;
+    --text-color: white;
 }
+
+/*Flip the colors when in light mode*/
+@media (prefers-color-scheme: light) {
+    #root {
+        --background-color: #f9f9f9;
+        --text-color: black;
+    }
+}
+
+/*Apply the variables to the body*/
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+/*Apply the variables to the h1*/
+h1, h2, h3, h4, h5, h6, p {
+    color: var(--text-color);
+}
+
 
 .App{
     text-align: center;
-    color: white;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
