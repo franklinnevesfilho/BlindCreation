@@ -5,7 +5,7 @@ import { useState } from "react";
 import {LengthUnit} from "./models/LengthUnit.tsx";
 
 interface QuestionsProps {
-    setValues: (width, drop, fabricId, bottomRailId, unit) => void;
+    setValues: (width:LengthUnit, drop:LengthUnit, fabricId:string, bottomRailId:string, unit:string) => void;
     width: LengthUnit;
     drop: LengthUnit;
     fabricId: string;

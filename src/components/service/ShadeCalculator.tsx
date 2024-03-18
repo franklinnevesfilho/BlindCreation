@@ -39,7 +39,7 @@ class ShadeCalculator {
             const dropValue = this.convertUnitService.convertUnit(drop.value, drop.unit, unit);
 
             if(!(outerDiameter === undefined || thickness === undefined || dropValue === undefined)) {
-                result = this.calculateRollUp({value:dropValue, unit:unit}, fabric, {value: outerDiameter, unit: unit});
+                result = this.calculateRollUp({value:dropValue, unit:unit}, fabric, {value: outerDiameter, unit: unit}, unit);
             }
         }
 
