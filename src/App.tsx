@@ -1,12 +1,13 @@
 import './App.css'
-import Deflection from "./components/Deflection.tsx";
+import Index from "./components";
+import React from "react";
 
 function App() {
 
   return (
     <>
         <div className="App">
-                <Deflection />
+                <Index />
         </div>
     </>
   )
