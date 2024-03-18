@@ -1,10 +1,10 @@
+import {LengthUnit} from "./LengthUnit.tsx";
+
 type Tube = {
     id: string;
     name: string;
-    outerDiameter: number;
-    outerDiameterUnit: string;
-    innerDiameter: number;
-    innerDiameterUnit: string;
+    outerDiameter: LengthUnit;
+    innerDiameter: LengthUnit;
 };
 
 export type { Tube };

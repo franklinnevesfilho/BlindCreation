@@ -1,72 +1,116 @@
 import { Tube } from "../models/Tube";
 
 class TubeService {
+    private static instance: TubeService;
+
     tubes: Tube[] = [
         {
             id: "0-154-TU-32011",
             name: "32mm LGH",
-            outerDiameter: 32,
-            outerDiameterUnit: "mm",
-            innerDiameter: 30,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:32,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value:30,
+                unit: "mm"
+            },
         },
         {
             id: "0-154-TU-32111",
             name: "32mm STD",
-            outerDiameter: 32.6,
-            outerDiameterUnit: "mm",
-            innerDiameter: 30,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:32.6,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value: 30,
+                unit: "mm"
+            }
         },
         {
             id: "0-154-TU-38001",
             name: "38mm STD",
-            outerDiameter: 38.43,
-            outerDiameterUnit: "mm",
-            innerDiameter: 35.89,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:38.43,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value:35.89,
+                unit: "mm"
+            },
         },
         {
             id: "0-154-TU-38511",
             name: "38mm HD",
-            outerDiameter: 40.3,
-            outerDiameterUnit: "mm",
-            innerDiameter: 35.9,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:40.3,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value: 35.9,
+                unit: "mm"
+            },
         },
         {
             id: "0-154-TU-45211",
             name: "45mm",
-            outerDiameter: 45,
-            outerDiameterUnit: "mm",
-            innerDiameter: 41.5,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:45,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value:41.5,
+                unit: "mm"
+            },
         },
         {
             id  : "0-154-TU-50211",
             name: "50mm",
-            outerDiameter: 51.25,
-            outerDiameterUnit: "mm",
-            innerDiameter: 47,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:51.25,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value:47,
+                unit: "mm"
+            },
         },
         {
             id: "0-154-TU-63",
             name: "63mm",
-            outerDiameter: 65.3,
-            outerDiameterUnit: "mm",
-            innerDiameter: 61.7,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:65.3,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value:61.7,
+                unit: "mm"
+            },
         },
         {
             id: "0-154-TU-83",
             name: "83mm",
-            outerDiameter: 83,
-            outerDiameterUnit: "mm",
-            innerDiameter: 77,
-            innerDiameterUnit: "mm"
+            outerDiameter: {
+                value:83,
+                unit: "mm"
+            },
+            innerDiameter: {
+                value:77,
+                unit: "mm"
+            },
         }
     ]
+
+    private constructor() {}
+
+    public static getInstance(): TubeService {
+        if (!TubeService.instance) {
+            TubeService.instance = new TubeService();
+        }
+        return TubeService.instance;
+    }
+
 
 
     addTube(tube: Tube): void {
