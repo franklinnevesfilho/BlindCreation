@@ -19,20 +19,20 @@ function ActionButtons({setDisplayModal, tubeService, closeModal}: ActionButtons
                 })}
             >Add Tube
             </button>
-            <button className={'btn'} onClick={() => setDisplayModal(
-                {
-                    display: true,
-                    content: <></>
-                })}
-            >Add Fabric
-            </button>
-            <button className={'btn'} onClick={() => setDisplayModal(
-                {
-                    display: true,
-                    content: <></>
-                })}
-            >Add Bottomrail
-            </button>
+            {/*<button className={'btn'} onClick={() => setDisplayModal(*/}
+            {/*    {*/}
+            {/*        display: true,*/}
+            {/*        content: <></>*/}
+            {/*    })}*/}
+            {/*>Add Fabric*/}
+            {/*</button>*/}
+            {/*<button className={'btn'} onClick={() => setDisplayModal(*/}
+            {/*    {*/}
+            {/*        display: true,*/}
+            {/*        content: <></>*/}
+            {/*    })}*/}
+            {/*>Add Bottomrail*/}
+            {/*</button>*/}
         </div>
     );
 }

@@ -23,8 +23,8 @@ function Index() {
     const [ allTubes ] = useState(tubeService.getTubes());
 
     const [unit, setUnit ] = useState<string>('none');
-    const [ width, setWidth ] = useState<LengthUnit>({value: 2, unit: 'm'});
-    const [ drop, setDrop ] = useState<LengthUnit>({value: 1, unit: 'm'});
+    const [ width, setWidth ] = useState<LengthUnit>({value: 0, unit: 'm'});
+    const [ drop, setDrop ] = useState<LengthUnit>({value: 0, unit: 'm'});
     const [ fabricId, setFabricId ] = useState<string>('none');
     const [bottomRailId, setBottomRailId] = useState<string>('none');
 
